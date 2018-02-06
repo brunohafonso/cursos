@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -38,7 +39,12 @@ namespace Instituicao.Models
         public DateTime HoraTermino { get; set; }
 
         public Categoria Categoria { get; set; }
-        
+
+        internal ICollection<Curso> ToList()
+        {
+            throw new NotImplementedException();
+        }
+
         public Curso()
         {
             
