@@ -22,7 +22,13 @@ namespace Instituicao.Controllers
         [HttpGet]
         public IEnumerable<Curso> Get()
         {
-            return contexto.Curso.ToList();
+            var cursos = contexto.Curso.ToList();
+            foreach(var curso in cursos)
+            {
+                var categoria = contexto.Categoria.Where(x => x.IdCategoria == curso.IdCategoria).FirstOrDefault();
+                curso.NomeCategoria = categoria.Nome;
+            }
+            return cursos;
         }
 
         [HttpGet("{Id}")]
@@ -36,7 +42,7 @@ namespace Instituicao.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-
+                
             contexto.Curso.Add(curso);
             int r = contexto.SaveChanges();
             if (r > 0)
@@ -72,6 +78,7 @@ namespace Instituicao.Controllers
             cli.HoraInicio = curso.HoraInicio;
             cli.HoraTermino = curso.HoraTermino;
             cli.Categoria = curso.Categoria;
+            cli.NomeCategoria = curso.NomeCategoria;
 
             contexto.Curso.Update(cli);
             int x = contexto.SaveChanges();

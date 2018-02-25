@@ -24,7 +24,24 @@ namespace Instituicao.Controllers
         [HttpGet]
         public IEnumerable<Categoria> Get()
         {
-            return contexto.Categoria.ToList();
+            var categorias = contexto.Categoria.ToList();
+            foreach(var categoria in categorias)
+            {
+                var cursos = contexto.Curso.Where(x => x.IdCategoria == categoria.IdCategoria).ToList();
+                if(cursos == null) 
+                {
+                    categoria.Curso = null;
+                } 
+                else 
+                {
+                    foreach(var curso in cursos)
+                    {
+                        categoria.Curso.Add(curso);
+                    }
+                }
+            }
+            
+            return categorias;
         }
 
         // GET api/values/5
@@ -33,10 +50,14 @@ namespace Instituicao.Controllers
         {
             try
             {
-                var categoria = contexto.Categoria.Where(x => x.IdCategoria == Id).FirstOrDefault();
-                categoria.Curso = contexto.Curso.Where(x => x.IdCategoria == Id).FirstOrDefault().ToList();
-                //categoria.Curso = cursos.ToList();
-                //rs = new JsonResult(categoria);
+                var categoria = contexto.Categoria.AsQueryable().Where(x => x.IdCategoria == Id).FirstOrDefault();
+                var cursos = contexto.Curso.Where(x => x.IdCategoria == Id).ToList();
+                foreach(var item in cursos)
+                {
+                    categoria.Curso.Add(item);
+                }
+
+                rs = new JsonResult(categoria);
                 if (categoria == null)
                 {
                     rs.ContentType = "application/json";
@@ -54,7 +75,7 @@ namespace Instituicao.Controllers
                 throw new Exception("erro ao buscar dados. " + e.Message);
             }
 
-            return Json(categoria);
+            return Json(rs);
         }
 
         // POST api/values
@@ -91,7 +112,6 @@ namespace Instituicao.Controllers
 
             cli.IdCategoria = categoria.IdCategoria;
             cli.Nome = categoria.Nome;
-            cli.Curso = categoria.Curso;
 
             contexto.Categoria.Update(cli);
             int x = contexto.SaveChanges();

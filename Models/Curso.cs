@@ -40,6 +40,9 @@ namespace Instituicao.Models
 
         public Categoria Categoria { get; set; }
 
+        [Required]
+        public string NomeCategoria { get; set; }
+        
         internal ICollection<Curso> ToList()
         {
             throw new NotImplementedException();
@@ -50,7 +53,7 @@ namespace Instituicao.Models
             
         }
 
-        public Curso(int IdCategoria, string Nome, DateTime DataInicio, DateTime DataTermino, string Semana, DateTime HoraInicio, DateTime HoraTermino, Categoria Categoria)
+        public Curso(int IdCategoria, string Nome, DateTime DataInicio, DateTime DataTermino, string Semana, DateTime HoraInicio, DateTime HoraTermino, Categoria Categoria, string NomeCategoria)
         {
             this.IdCategoria = IdCategoria;
             this.Nome = Nome;
@@ -60,6 +63,7 @@ namespace Instituicao.Models
             this.HoraInicio = HoraInicio;
             this.HoraTermino = HoraTermino;
             this.Categoria = Categoria;
+            this.NomeCategoria = NomeCategoria;
         }
     }
 }

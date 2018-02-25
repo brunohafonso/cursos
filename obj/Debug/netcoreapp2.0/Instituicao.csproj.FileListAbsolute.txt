@@ -8,3 +8,13 @@ C:\Users\44063076806\backend\Instituicao\obj\Debug\netcoreapp2.0\Instituicao.Ass
 C:\Users\44063076806\backend\Instituicao\obj\Debug\netcoreapp2.0\Instituicao.AssemblyInfo.cs
 C:\Users\44063076806\backend\Instituicao\obj\Debug\netcoreapp2.0\Instituicao.dll
 C:\Users\44063076806\backend\Instituicao\obj\Debug\netcoreapp2.0\Instituicao.pdb
+C:\Users\bruno\Desktop\cursos\bin\Debug\netcoreapp2.0\Instituicao.deps.json
+C:\Users\bruno\Desktop\cursos\bin\Debug\netcoreapp2.0\Instituicao.runtimeconfig.json
+C:\Users\bruno\Desktop\cursos\bin\Debug\netcoreapp2.0\Instituicao.runtimeconfig.dev.json
+C:\Users\bruno\Desktop\cursos\bin\Debug\netcoreapp2.0\Instituicao.dll
+C:\Users\bruno\Desktop\cursos\bin\Debug\netcoreapp2.0\Instituicao.pdb
+C:\Users\bruno\Desktop\cursos\obj\Debug\netcoreapp2.0\Instituicao.csproj.CoreCompileInputs.cache
+C:\Users\bruno\Desktop\cursos\obj\Debug\netcoreapp2.0\Instituicao.AssemblyInfoInputs.cache
+C:\Users\bruno\Desktop\cursos\obj\Debug\netcoreapp2.0\Instituicao.AssemblyInfo.cs
+C:\Users\bruno\Desktop\cursos\obj\Debug\netcoreapp2.0\Instituicao.dll
+C:\Users\bruno\Desktop\cursos\obj\Debug\netcoreapp2.0\Instituicao.pdb
